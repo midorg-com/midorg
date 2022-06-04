@@ -35,7 +35,7 @@
         </view>
         <view class="section">
             <view class="title">你的基础情况：</view>
-            <textarea style="height:100rpx" class="input" name="info" placeholder="介绍一下你的基础情况" />
+            <textarea style="height:100rpx" class="input" name="info" placeholder="{{info}}" />
         </view>
         <view class="area">
             <button style="margin: 30rpx 0" type="primary" formType="submit">提交</button>

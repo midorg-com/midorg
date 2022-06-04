@@ -4,6 +4,7 @@
     "pages/form/index",
     "pages/list/index",
     "pages/group/index",
+    "pages/webview/index",
     "pages/tip/index"
   ],
   "window": {

@@ -17,7 +17,7 @@ Page({
           },
         })
         .then((res) => {
-          if (res.result.groupId) {
+          if (res.result?.groupId) {
             wx.setStorageSync("groupId", res.result.groupId);
             this.setData({
               groupId: res.result.groupId,
