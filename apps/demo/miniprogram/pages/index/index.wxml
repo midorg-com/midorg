@@ -1,0 +1,17 @@
+<view>
+    <view class="cover">
+        <image src="/images/logo.png" class="logo" />
+    </view>
+    <view class="title">嗨~欢迎来到元岛!</view>
+    <view class="desc">这里是元岛的分组小程序V1 版本</view>
+    <view class="choose">
+        <navigator wx:if="{{!groupId}}" class="join" url="/pages/form/index">创建小组</navigator>
+        <navigator wx:if="{{!groupId}}" class="join" url="/pages/list/index">加入小组</navigator>
+        <navigator wx:if="{{!groupId}}" class="join" url="/pages/tip/index?type=big">
+            跳过小组
+        </navigator>
+        <navigator wx:if="{{groupId}}" class="join" url="/pages/group/index?groupId={{groupId}}">
+            我的小组
+        </navigator>
+    </view>
+</view>

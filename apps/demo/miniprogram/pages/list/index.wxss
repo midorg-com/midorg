@@ -1,0 +1,42 @@
+.page {
+  background-color: #f1f1f1;
+  padding: 20rpx 0;
+  min-height: 100vh;
+}
+.card {
+  margin: 40rpx;
+  background-color: #fff;
+  border-radius: 12rpx;
+  box-shadow: rgb(0 0 0 / 20%) 0px 2px 1px -1px,
+    rgb(0 0 0 / 14%) 0px 1px 1px 0px, rgb(0 0 0 / 12%) 0px 1px 3px 0px;
+  padding: 20rpx;
+}
+.txt {
+  margin: 16rpx 0;
+  display: flex;
+}
+.title {
+  color: #666;
+  width: 200rpx;
+  flex: 1;
+}
+.info {
+  color: #333;
+  flex: 3;
+}
+.toast {
+  text-align: center;
+  font-size: 40rpx;
+  color: #555;
+}
+.join {
+  width: 400rpx;
+  height: 100rpx;
+  background-color: #07c160;
+  margin: 50rpx auto 500px;
+  text-align: center;
+  line-height: 100rpx;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 12rpx;
+}

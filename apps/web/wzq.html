@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+    <title>五子棋练习-元岛</title>
+    <meta name="description" content="js实现五子棋游戏" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #4bc0c8, #c779d0, #feac5e);
+      }
+      #info {
+        margin-top: -100px;
+        height: 50px;
+        color: #fff;
+        font-size: 18px;
+        text-align: center;
+      }
+
+      #root {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 500px;
+        max-width: 90%;
+        background-color: #fff;
+        border-radius: 4px;
+        box-shadow: rgb(0 0 0 / 20%) 0px 2px 1px -1px,
+          rgb(0 0 0 / 14%) 0px 1px 1px 0px, rgb(0 0 0 / 12%) 0px 1px 3px 0px;
+        overflow: hidden;
+        /* user-select: none;
+        -webkit-tap-highlight-color: rgba(255, 0, 0, 0); */
+      }
+
+      .square {
+        position: relative;
+        flex-grow: 1;
+        margin: 0;
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4) inset;
+      }
+      .circle {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+      }
+
+      .white {
+        background: #fff;
+        border: 1px solid #ccc;
+        box-shadow: 0 0 3px #ccc, 0 2px 2px #eee inset;
+      }
+
+      .black {
+        background: #000;
+        border: 1px solid #000;
+        box-shadow: 0 1px 3px #eee, 1px 1px 2px rgb(99, 99, 99) inset;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="info">白子先行</div>
+    <div id="root"></div>
+    <script>
+      // 灵感来自于这里：
+      // 原文：http://www.ferecord.com/create-gobang-with-javascriot.html
+      // demo：http://www.ferecord.com/lab/gobang/
+      // 我简化了代码，去掉了类和代理，让大家更容易理解。
+
+      // 获取id为root的标签元素
+      let root = document.getElementById("root");
+
+      // 设置棋盘格子数15×15
+      let cell = 15;
+
+      // 棋盘的html，初始是空的
+      let html = "";
+
+      // 棋盘的棋子数据，初始是空的
+      let board = [];
+
+      // root元素的屏幕宽度
+      let rwidth = root.clientWidth;
+
+      // 棋子的格子宽度
+      let swidth = parseInt(rwidth / cell, 10) + "px";
+      // 棋子的圆形宽度
+      let cwidth = parseInt(rwidth / cell / 1.2, 10) + "px";
+
+      // 设置一个格子数长度的数组
+      let arr = Array.from({ length: cell });
+
+      // 循环该数组，创建出棋盘html，横向15个，竖向15个
+      arr.map((_, row) => {
+        //行
+        arr.map((_, column) => {
+          //列
+          // 棋盘格子，一个方块，里面是一个圆形，此时圆形还看不到
+          let box = `<div class="square" style="width:${swidth};height:${swidth}">
+                <div class="circle" column="${column}" row="${row}" style="width:${cwidth};height:${cwidth}"></div>
+            </div>`;
+          html = html + box;
+        });
+      });
+      // 把写好的html 设置为root元素的html，就是渲染到屏幕上
+      root.innerHTML = html;
+
+      // 棋子颜色
+      let chessColor = "black";
+
+      //给棋盘添加监听事件，当click点击时，执行函数
+      root.addEventListener("click", (e) => {
+        // e是浏览器传入的参数，包含点击的位置等数据
+        // console.log(e);
+        // 鼠标点击的标签
+        let target = e.target;
+        // 判断点击的标签是否包含circle的css，也就是说判断点击的是否是棋子格子
+        // 另一个判断是看它是不是只有一个css，如果有两个就说明已经有棋子了，就不会执行if里的代码
+        // &&符号表示，只有同时判断成功，才会执行{}里的代码
+        if (
+          target.className.includes("circle") &&
+          target.classList.length == 1
+        ) {
+          if (chessColor === "white") {
+            // 改变棋子颜色，因为每次点击都会交换选手
+            chessColor = "black";
+            // 改变提示
+            document.getElementById("info").innerHTML = "白子回合";
+          } else {
+            chessColor = "white";
+            document.getElementById("info").innerHTML = "黑子回合";
+          }
+          // 把颜色css加入标签的class列表里
+          target.classList.add(chessColor);
+          // 获取元素的行列序号
+          let column = parseInt(target.getAttribute("column"));
+          let row = parseInt(target.getAttribute("row"));
+          console.log(column, row, chessColor);
+          // 把棋子放进棋盘数据中
+          board.push({
+            column: column,
+            row: row,
+            chessColor: chessColor,
+          });
+
+          // 判断是否获胜
+          // 用延迟1毫秒调用是为了等待浏览器把棋子渲染到界面上
+          setTimeout(() => {
+            checkWin(column, row, chessColor);
+          }, 1);
+        } else {
+          console.log("该格子已有棋子");
+        }
+      });
+      // 这个函数稍微有点难，多练习理解
+      function checkWin(column, row, chessColor) {
+        // 四个轴：横、竖、左斜、右斜，[0,1]代表x轴方向不变，y轴向前1
+        //
+        //      | 0,1 |  1,1
+        //x轴   | 原点 | 1,0
+        //      |      | 1,-1
+        //         y轴
+        let axis = [
+          [0, 1],
+          [1, 0],
+          [1, 1],
+          [1, -1],
+        ];
+        axis.map((direct) => {
+          // 反方向
+          let reverse = [-direct[0], -direct[1]];
+          // 该轴正方向上相同颜色的棋子数量
+          let positiveDirectionNumber = 0;
+          // 反方向上相同颜色的棋子数量
+          let negativeDirectionNumber = 0;
+          // 先是正方向循环5次，既从原点开始向四个正方向查找相同颜色的棋子数量
+          for (let index = 1; index < 6; index++) {
+            // 方向的坐标要乘次数，就是向外找几个点
+            let pcolumn = column + direct[0] * index;
+            let prow = row + direct[1] * index;
+            // 查找board中该方向坐标是否有这个棋子
+            let phave = board.some(
+              (item) =>
+                pcolumn === item.column &&
+                prow === item.row &&
+                chessColor === item.chessColor
+            );
+            // 如果有那么正方向棋子数加1
+            if (phave) {
+              positiveDirectionNumber++;
+            } else {
+              // 没有的话代表该方向不可能再成功，直接退出循环
+              break;
+            }
+          }
+          // 然后是反方向循环五次，这里其实可以和前面的循环合并，但为了更好理解我就分开了
+          for (let index = 1; index < 6; index++) {
+            // 这里是乘反方向坐标
+            let ncolumn = column + reverse[0] * index;
+            let nrow = row + reverse[1] * index;
+            let nhave = board.some(
+              (item) =>
+                ncolumn === item.column &&
+                nrow === item.row &&
+                chessColor === item.chessColor
+            );
+            if (nhave) {
+              negativeDirectionNumber++;
+            } else {
+              break;
+            }
+          }
+          // 如果正反方向加起来超过或等于4个同色棋子，加上自身一共5个，则胜利
+          if (positiveDirectionNumber + negativeDirectionNumber >= 4) {
+            // 提示胜利方后reload刷新页面重新开始
+            window.confirm(
+              (chessColor === "white" ? "白棋" : "黑棋") + "胜利!"
+            );
+            window.location.reload();
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

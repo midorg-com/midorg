@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>Re01 HTML 教学小工具</title>
+    <meta name="description" content="康文昌的在线HTML 教学小工具。" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <style>
+      body {
+        margin: 0;
+      }
+
+      a {
+        color: #216cd3;
+        text-decoration: none;
+        border-bottom: 1px dashed;
+      }
+      #show {
+        display: block;
+        /* overflow: hidden; */
+        border: 0 !important;
+        min-width: 100px;
+        width: 100%;
+        min-height: 100vh;
+        background-color: #fff;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header
+      style="
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+      "
+    >
+      <a
+        href="https://www.midorg.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        >元岛社区</a
+      >
+      <a href="https://imgloc.com/" target="_blank" rel="noopener noreferrer"
+        >图床1</a
+      >
+      <!-- <a href="https://img.wang/" target="_blank" rel="noopener noreferrer"
+        >图床1</a
+      > -->
+      <a href="https://imgtu.com/" target="_blank" rel="noopener noreferrer"
+        >图床2</a
+      >
+      <button onclick="init()">初始化</button>
+      <button onclick="save()">保存文件</button>
+    </header>
+    <div
+      id="edit"
+      style="width: 100%; height: 400px; border: 1px solid grey"
+    ></div>
+    <div id="tip">
+      加载中，请稍等……如果长时间依然无法打开，就说明你的这个手机浏览器不兼容，用Chrome或Edge手机浏览器试试，或者搜索
+      菜鸟html工具，亦或是自行寻找手机可以写代码的App（如
+      WebCat）。电脑用户如果长时间进不去同样切换Edge，或使用vscode或云编辑器，看完编程环境配置那期或答疑视频就会明白。
+    </div>
+    <iframe frameborder="0" id="show" title="page"> </iframe>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+          navigator.serviceWorker.register("sw.js");
+        });
+      }
+    </script>
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/monaco-editor@latest/min/vs/loader.js"
+    ></script>
+    <script>
+      require.config({
+        paths: { vs: "https://unpkg.com/monaco-editor@latest/min/vs" },
+      });
+
+      window.MonacoEnvironment = {
+        getWorkerUrl: function (workerId, label) {
+          return `data:text/javascript;charset=utf-8,${encodeURIComponent(`
+                self.MonacoEnvironment = {
+                  baseUrl: 'https://unpkg.com/monaco-editor@latest/min/'
+                };
+                importScripts('https://unpkg.com/monaco-editor@latest/min/vs/base/worker/workerMain.js');`)}`;
+        },
+      };
+      let ins;
+      let ht =
+        window.localStorage.getItem("html") ||
+        `<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>康文昌的在线HTML 教学小工具</title>
+  </head>
+  <body style="margin: 0;">
+	  <h1>注意：</h1>
+	  <p>这只是用来教学的小工具，为了让很多不会安装或使用vscode的同学先上手，所以如果你想正式使用，请看我后面专门的那期环境配置vscode安装使用视频。</p>
+	  <p>手机端功能有限，仅用于熟悉html、css、js 的基本作用</p>
+	  <p>手机端部分浏览器无法保存文件到本地，请使用Chrome或Edge手机浏览器保存</p>
+	  <p>安卓手机也可以下载<a target="_blank" rel="noopener noreferrer"
+        href="https://www.coolapk.com/apk/top.webcat.editor"> WebCat </a>使用，或者元岛知识库有众多其他方法。</p>
+    <p>此工具无法使用你手机或电脑上的图片，需要前往上面的第三方图床网站上传图片（请勿上传隐私图片），获得后缀为jpg或png的网络图片地址后粘贴到src 属性中</p>
+    <img src="https://www.midorg.com/midlogo.png" alt="logo" width="100px" height="100px">
+  </body>
+</html>
+`;
+      require(["vs/editor/editor.main"], function () {
+        ins = monaco.editor.create(document.getElementById("edit"), {
+          value: ht,
+          language: "html",
+          minimap: {
+            enabled: false,
+          },
+          theme: "vs-dark",
+          width: 300,
+        });
+        document.getElementById("show").srcdoc = ht;
+        document.getElementById("tip").innerText = "";
+        ins.onDidChangeModelContent(() => {
+          document.getElementById("show").srcdoc = ins.getValue();
+          window.localStorage.setItem("html", ins.getValue());
+        });
+      });
+      function save() {
+        let a = document.createElement("a");
+        let blob = new Blob([ins.getValue()], { type: "application/html" });
+        a.href = URL.createObjectURL(blob);
+        a.download = "index.html";
+        a.style.display = "none";
+        a.target = "_blank";
+        document.body.appendChild(a);
+        a.click();
+      }
+      function init() {
+        window.localStorage.removeItem("html");
+        window.location.reload();
+      }
+    </script>
+  </body>
+</html>

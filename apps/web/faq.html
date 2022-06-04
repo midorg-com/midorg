@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Re01 从零开始的编程之路答疑汇总</title>
+    <meta name="description" content="Re01 从零开始的编程之路答疑汇总" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <style>
+      body {
+        margin: 0;
+        background-color: #f1f1f1;
+      }
+      a {
+        color: #216cd3;
+        text-decoration: none;
+        border-bottom: 1px dashed;
+      }
+
+      footer {
+        margin-top: 60px;
+        background-color: #f1f1f1;
+        text-align: center;
+        padding: 40px;
+        font-size: 12px;
+        color: #666;
+      }
+
+      .biaoTi {
+        background-color: #8ba3c7;
+        color: white;
+        height: 160px;
+        padding: 0 20px;
+        justify-content: space-evenly;
+      }
+      .flex {
+        display: flex;
+      }
+      .column {
+        flex-direction: column;
+      }
+      .zhuZhouJuZhong {
+        align-items: center;
+      }
+      .jiaoChaZhouJuZhong {
+        justify-content: center;
+      }
+      .main {
+        margin: auto;
+        padding: 20px 10px;
+        max-width: 700px;
+      }
+      .box {
+        color: #333;
+        font-size: 14px;
+        border: 1px solid #eee;
+        background-color: white;
+        border-radius: 4px;
+        box-shadow: rgb(0 0 0 / 20%) 0px 2px 1px -1px,
+          rgb(0 0 0 / 14%) 0px 1px 1px 0px, rgb(0 0 0 / 12%) 0px 1px 3px 0px;
+      }
+      .title {
+        font-size: 16px;
+      }
+      hr {
+        border: none;
+        border-top: 1px solid #eee;
+      }
+
+      .tree {
+        position: relative;
+        width: 100%;
+      }
+      .tree summary {
+        outline: 0;
+        padding-left: 20px;
+        list-style: none;
+      }
+      .tree summary:not(:only-child) {
+        background: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.354 2.646A.5.5 0 0 0 4.5 3v6a.5.5 0 0 0 .854.354l3-3a.5.5 0 0 0 0-.708l-3-3z' fill='%23000' fill-opacity='.45'/%3E%3C/svg%3E")
+          4px center no-repeat;
+      }
+      .tree details[open] > summary:not(:only-child) {
+        background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.354 5.354A.5.5 0 0 0 9 4.5H3a.5.5 0 0 0-.354.854l3 3a.5.5 0 0 0 .708 0l3-3z' fill='%23000' fill-opacity='.45'/%3E%3C/svg%3E");
+      }
+      .tree details {
+        padding-left: 10px;
+      }
+      .tree-item {
+        display: flex;
+        align-items: center;
+        height: 46px;
+        font-size: 15px;
+        line-height: 22px;
+        color: rgba(0, 0, 0, 0.85);
+        cursor: default;
+      }
+      .tree-item::after {
+        content: "";
+        position: absolute;
+        left: 10px;
+        right: 10px;
+        height: 38px;
+        background: #eef2ff;
+        border-radius: 8px;
+        z-index: -1;
+        opacity: 0;
+        transition: 0.2s;
+      }
+      .tree-item:hover {
+        background: #e6f0ff;
+      }
+      .tree-item:hover::after {
+        opacity: 1;
+      }
+      .tree-item::before {
+        content: "";
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+        margin-right: 8px;
+        background: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M.833 3.75c0-.92.746-1.667 1.667-1.667h5.417c.247 0 .481.11.64.3l1.833 2.2h7.11c.92 0 1.667.747 1.667 1.667v10c0 .92-.747 1.667-1.667 1.667h-15c-.92 0-1.667-.746-1.667-1.667V3.75zm6.693 0H2.5v4.584h15V6.25H10a.833.833 0 0 1-.64-.3l-1.834-2.2zM17.5 10h-15v6.25h15V10z' fill='%23000' fill-opacity='.45'/%3E%3C/svg%3E")
+          center no-repeat;
+      }
+      .tree details[open] > summary:not(:only-child) > .tree-item::before {
+        background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M7.917 2.083c.247 0 .481.11.64.3l1.833 2.2h5.443c.92 0 1.667.747 1.667 1.667v1.667h.833a.833.833 0 0 1 .817.997l-1.666 8.333a.833.833 0 0 1-.817.67H1.677a.814.814 0 0 1-.157-.013.83.83 0 0 1-.687-.82V3.75c0-.92.746-1.667 1.667-1.667h5.417zM10 6.25a.833.833 0 0 1-.64-.3l-1.834-2.2H2.5v6.564l.441-1.766a.833.833 0 0 1 .809-.631h12.083V6.25H10zm-7.266 10L4.4 9.584h12.916l-1.334 6.666H2.733z' fill='%23000' fill-opacity='.45'/%3E%3C/svg%3E");
+      }
+    </style>
+  </head>
+  <body>
+    <div class="biaoTi flex column">
+      <p style="font-size: 12px">元岛</p>
+      <p style="align-self: center; font-size: 18px">Re01 答疑汇总</p>
+      <p style="align-self: flex-end; font-size: 10px">
+        如有未收录问题可提交到评论区
+      </p>
+    </div>
+    <div class="main">
+      <div class="box">
+        <div class="tree" id="tree">
+          <details>
+            <summary>
+              <span class="tree-item">先导课</span>
+            </summary>
+            <details>
+              <summary>
+                <span class="tree-item">1：编程课程介绍</span>
+              </summary>
+            </details>
+            <details>
+              <summary>
+                <span class="tree-item">2：职业选择</span>
+              </summary>
+            </details>
+            <details>
+              <summary>
+                <span class="tree-item">3：编程的必要性</span>
+              </summary>
+              <details>
+                <summary>
+                  <span class="tree-item">问：</span>
+                </summary>
+              </details>
+            </details>
+            <details>
+              <summary>
+                <span class="tree-item">4：学编程的方式</span>
+              </summary>
+            </details>
+            <details>
+              <summary>
+                <span class="tree-item">5：编程语言的选择</span>
+              </summary>
+            </details>
+            <details>
+              <summary>
+                <span class="tree-item">6：自学的方式</span>
+              </summary>
+            </details>
+          </details>
+          <details open="open">
+            <summary>
+              <span class="tree-item">个人网站</span>
+            </summary>
+            <details>
+              <summary>
+                <span class="tree-item">1：编程的本质</span>
+              </summary>
+            </details>
+            <details>
+              <summary>
+                <span class="tree-item">2：第一行代码</span>
+              </summary>
+            </details>
+            <details>
+              <summary>
+                <span class="tree-item">3：十分钟学会写网页</span>
+              </summary>
+            </details>
+            <details>
+              <summary>
+                <span class="tree-item">4：上线网站</span>
+              </summary>
+            </details>
+            <details>
+              <summary>
+                <span class="tree-item">5：HTML 入门</span>
+              </summary>
+            </details>
+            <details>
+              <summary>
+                <span class="tree-item">6：HTML 实践</span>
+              </summary>
+            </details>
+            <details>
+              <summary>
+                <span class="tree-item">7：CSS 入门</span>
+              </summary>
+            </details>
+            <details>
+              <summary>
+                <span class="tree-item">8：CSS 布局</span>
+              </summary>
+            </details>
+            <details>
+              <summary>
+                <span class="tree-item">9：编程环境配置</span>
+              </summary>
+            </details>
+            <details>
+              <summary>
+                <span class="tree-item">10：CSS Flex</span>
+              </summary>
+            </details>
+          </details>
+          <details>
+            <summary>
+              <span class="tree-item">内容管理系统</span>
+            </summary>
+          </details>
+          <details>
+            <summary>
+              <span class="tree-item">元岛</span>
+            </summary>
+          </details>
+          <details>
+            <summary>
+              <span class="tree-item">选修</span>
+            </summary>
+            <details>
+              <summary>
+                <span class="tree-item">计算机系统</span>
+              </summary>
+            </details>
+            <details>
+              <summary>
+                <span class="tree-item">网络通信</span>
+              </summary>
+            </details>
+            <details>
+              <summary>
+                <span class="tree-item">综合能力</span>
+              </summary>
+            </details>
+            <details>
+              <summary>
+                <span class="tree-item">游戏</span>
+              </summary>
+            </details>
+            <details>
+              <summary>
+                <span class="tree-item">大数据</span>
+              </summary>
+            </details>
+            <details>
+              <summary>
+                <span class="tree-item">人工智能</span>
+              </summary>
+            </details>
+            <details>
+              <summary>
+                <span class="tree-item">物联网</span>
+              </summary>
+            </details>
+            <details>
+              <summary>
+                <span class="tree-item">云计算</span>
+              </summary>
+            </details>
+            <details>
+              <summary>
+                <span class="tree-item">区块链</span>
+              </summary>
+            </details>
+            <details>
+              <summary>
+                <span class="tree-item">编译原理</span>
+              </summary>
+            </details>
+            <details>
+              <summary>
+                <span class="tree-item">芯片基础</span>
+              </summary>
+            </details>
+          </details>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <p>Copyright © midorg.com</p>
+      <a
+        style="color: #666"
+        href="http://beian.miit.gov.cn/"
+        target="_blank"
+        rel="noopener noreferrer"
+        >沪ICP备19037513号-3</a
+      >
+    </footer>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+          navigator.serviceWorker.register("sw.js");
+        });
+      }
+    </script>
+  </body>
+</html>

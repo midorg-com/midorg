@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+    <title>当前要事-元岛</title>
+    <meta
+      name="description"
+      content="记录和提醒当前最重要的事，可以设置为浏览器起始页tab"
+    />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+    <style>
+      body {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        /* 你可以替换下方背景图片为自己的图片链接地址，也可以使用我的 */
+        background-image: url("https://www.midorg.com/bg.jpg");
+        background-color: black;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+      }
+      .box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      #shuRuKuang {
+        border: 0;
+        border-bottom: 2px solid #fff;
+        padding: 4px 2px;
+        display: block;
+        background: 0;
+        line-height: 1.5;
+        outline: none;
+        text-align: center;
+        transition: border-color 0.2s ease-in-out;
+        border-radius: 0;
+        color: #fff;
+        font-size: 2rem;
+        max-width: 90%;
+      }
+
+      #anNiu {
+        margin-left: -50px;
+        margin-right: 10px;
+        color: #ccc;
+        border-radius: 50%;
+        height: 40px;
+        width: 40px;
+        text-align: center;
+        line-height: 30px;
+        cursor: pointer;
+      }
+
+      input::placeholder {
+        color: #ccc;
+      }
+      input::-webkit-input-placeholder {
+        color: #ccc;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="box">
+      <input placeholder="最重要的事？" id="shuRuKuang" />
+      <span id="anNiu" onclick="change()">✔</span>
+    </div>
+    <script>
+      let youShi = false;
+
+      function change() {
+        let anNiu = document.getElementById("anNiu");
+        let shuRuKuang = document.getElementById("shuRuKuang");
+
+        if (youShi) {
+          youShi = false;
+          anNiu.innerText = "✔";
+          shuRuKuang.style.borderBottomColor = "#fff";
+          shuRuKuang.value = "";
+          shuRuKuang.readOnly = false;
+          window.localStorage.removeItem("shi");
+        } else {
+          youShi = true;
+          anNiu.innerText = "✘";
+          shuRuKuang.style.borderBottomColor = "transparent";
+          shuRuKuang.readOnly = true;
+          window.localStorage.setItem("shi", shuRuKuang.value);
+        }
+      }
+      let data = window.localStorage.getItem("shi");
+      if (data) {
+        document.getElementById("shuRuKuang").value = data;
+        change();
+      }
+    </script>
+  </body>
+</html>

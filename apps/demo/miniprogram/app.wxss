@@ -1,0 +1,19 @@
+/**app.wxss**/
+.flex {
+  display: flex;
+}
+.column {
+  flex-direction: column;
+}
+.f1 {
+  flex: 1;
+}
+.jcc {
+  justify-content: center;
+}
+.aic {
+  align-items: center;
+}
+.b {
+  font-weight: bold;
+}

@@ -1,0 +1,34 @@
+<view class="page">
+    <view wx:for="{{groupList}}" wx:for-item="group" wx:key="groupId">
+        <navigator url="/pages/form/index?groupId={{group.groupId}}" class="card">
+            <view class="txt">
+                <view class="title">组号：</view>
+                <view class="info">{{group.groupId}}</view>
+            </view>
+            <view class="txt">
+                <view class="title">年龄：</view>
+                <view class="info">{{group.age-2}} - {{group.age+1}}</view>
+            </view>
+            <view class="txt">
+                <view class="title">区域：</view>
+                <view class="info">{{group.region||"无"}}</view>
+            </view>
+            <view class="txt">
+                <view class="title">组长：</view>
+                <view class="info">{{group.leader}}</view>
+            </view>
+            <view class="txt">
+                <view class="title">人数：</view>
+                <view class="info">{{group.member}}</view>
+            </view>
+            <view class="txt">
+                <view class="title">简介：</view>
+                <view class="info">{{group.info}}</view>
+            </view>
+        </navigator>
+    </view>
+    <view>
+        <view class="toast">已无更多小组</view>
+        <navigator open-type="redirect" url="/pages/form/index" class="join">点这里去自行创建小组</navigator>
+    </view>
+</view>
