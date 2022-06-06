@@ -1,6 +1,5 @@
 .img {
   width: 500rpx;
-  height: 640rpx;
   margin-bottom: 80rpx;
 }
 .mat {

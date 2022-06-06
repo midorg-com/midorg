@@ -14,9 +14,9 @@ module.exports = async (event) => {
     let openId = wxContext.OPENID;
     // 防止加入两个小组
     let exist = await db
-      .collection("test-form")
+      .collection("form")
       .where({
-        openId,
+        _openid: openId,
       })
       .get();
     if (exist.data[0] && exist.data[0].groupId) {
@@ -28,7 +28,7 @@ module.exports = async (event) => {
 
     // 有可能在填写时就加满了，要先查一下
     let res = await db
-      .collection("test-group")
+      .collection("group")
       .where({
         groupId: u.groupId,
       })
@@ -42,7 +42,7 @@ module.exports = async (event) => {
 
     // 更新小组成员数量
     await db
-      .collection("test-group")
+      .collection("group")
       .where({
         groupId: u.groupId,
       })
@@ -51,7 +51,7 @@ module.exports = async (event) => {
           member: _.inc(1),
         },
       });
-    await db.collection("test-form").add({
+    await db.collection("form").add({
       data: {
         nickname: u.nickname,
         gender: u.gender === "nv",
@@ -60,7 +60,7 @@ module.exports = async (event) => {
         age: u.age,
         info: u.info,
         isLeader: false,
-        openId,
+        _openid: openId,
         groupId: u.groupId,
       },
     });

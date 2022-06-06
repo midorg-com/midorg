@@ -25,8 +25,7 @@
   flex: 3;
 }
 .img {
-  width: 300rpx;
-  height: 400rpx;
+  width: 500rpx;
   margin: 20rpx 40rpx;
 }
 .tip {

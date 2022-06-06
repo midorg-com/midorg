@@ -11,9 +11,9 @@ module.exports = async (event) => {
     let wxContext = cloud.getWXContext();
     let openId = wxContext.OPENID || "test";
     let res = await db
-      .collection("test-form")
+      .collection("form")
       .where({
-        openId,
+        _openid: openId,
       })
       .get();
 

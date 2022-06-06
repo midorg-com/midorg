@@ -31,7 +31,7 @@
         <navigator wx:if="{{!groupId}}" class="join" url="/pages/form/index">创建小组</navigator>
         <navigator wx:if="{{!groupId}}" class="join" url="/pages/list/index">加入小组</navigator>
         <navigator wx:if="{{!groupId}}" class="join" url="/pages/tip/index?type=big">
-            跳过小组
+            不想加小组点此
         </navigator>
         <navigator wx:if="{{groupId}}" class="join" url="/pages/group/index?groupId={{groupId}}">
             我的小组

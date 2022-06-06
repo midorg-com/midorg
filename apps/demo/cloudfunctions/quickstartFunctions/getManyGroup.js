@@ -9,7 +9,7 @@ const _ = db.command;
 module.exports = async (event) => {
   try {
     let res = await db
-      .collection("test-group")
+      .collection("group")
       .where({
         member: _.lt(6),
       })

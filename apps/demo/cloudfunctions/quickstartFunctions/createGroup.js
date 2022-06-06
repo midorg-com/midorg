@@ -14,9 +14,9 @@ module.exports = async (event) => {
     let openId = wxContext.OPENID;
     // 防止加入两个小组
     let exist = await db
-      .collection("test-form")
+      .collection("form")
       .where({
-        openId,
+        _openid: openId,
       })
       .get();
     if (exist.data[0] && exist.data[0].groupId) {
@@ -26,10 +26,10 @@ module.exports = async (event) => {
       };
     }
     // 想要递增小组id怎么办
-    let res = await db.collection("test-group").count();
+    let res = await db.collection("group").count();
     let groupId = parseInt(res.total) + 1;
     // 严格项目需要事务功能，可以自行搜索并查看文档
-    await db.collection("test-group").add({
+    await db.collection("group").add({
       data: {
         leader: u.nickname,
         region: u.region,
@@ -37,12 +37,12 @@ module.exports = async (event) => {
         age: u.age,
         info: u.info,
         member: 1,
-        openId,
+        _openid: openId,
         groupId,
       },
     });
 
-    await db.collection("test-form").add({
+    await db.collection("form").add({
       data: {
         nickname: u.nickname,
         gender: u.gender === "nv",
@@ -51,7 +51,7 @@ module.exports = async (event) => {
         age: u.age,
         info: u.info,
         isLeader: true,
-        openId,
+        _openid: openId,
         groupId,
       },
     });

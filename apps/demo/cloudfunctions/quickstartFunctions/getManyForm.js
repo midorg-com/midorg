@@ -12,12 +12,12 @@ module.exports = async (event) => {
     let openId = wxContext.OPENID || "test";
     let u = event.data;
     let res = await db
-      .collection("test-form")
+      .collection("form")
       .where({
         groupId: u.groupId,
       })
       .get();
-    let form = res.data.find((item) => item.openId === openId);
+    let form = res.data.find((item) => item._openid === openId);
     if (!form) {
       return {
         success: false,
