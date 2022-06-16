@@ -1,1 +1,0 @@
-"D:\Program Files (x86)\Tencent\微信web开发者工具\cli.bat" cloud functions deploy --e mid-2gnw71li1e1341f3 --n quickstartFunctions --r --project "D:\app\apps\demo" --report_first --report
