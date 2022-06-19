@@ -14,22 +14,20 @@
     <view class="text">下方为个人群二维码，长按识别加入。如果后续进小组，个人群可退出，两边一样的，区别在于是否有小组。</view>
     <view class="text red">注意！近期有个别微商广告混入，个人群禁止在未经过同意的情况下添加其他人为好友，其他人如收到骚扰请求，可以联系管理员举报。</view>
     <view class="text red">注意：元岛没有任何私下收费项目或环节，如有人私聊涉及金钱的一律视为诈骗，如有遇到请立即联系管理员。</view>
-    <image show-menu-by-longpress class="img mat" mode="widthFix" src="cloud://mid-2gnw71li1e1341f3.6d69-mid-2gnw71li1e1341f3-1308839362/s1.png"></image>
+    <image show-menu-by-longpress class="img mat" mode="widthFix" src="cloud://mid-2gnw71li1e1341f3.6d69-mid-2gnw71li1e1341f3-1308839362/s1.jpg"></image>
   </view>
   <view wx:if="{{!type}}" class="flex column aic jcc page">
     <icon size="180rpx" type="success"></icon>
     <view wx:if="{{!code}}" class="flex column aic jcc">
       <view class="tip">创建成功！你的小组ID是：</view>
       <view class="gid">{{groupId}}</view>
-      <view class="text">
-        你的小组信息将在列表页展示，报名你小组的同学将通过你留下的微信号添加你为好友，你也可以在首页-小组信息中查看他们的微信号主动联系
-      </view>
+      <view class="text">你的小组信息将在列表页展示，报名你小组的同学将通过你留下的微信号添加你为好友，你也可以在首页-小组信息中查看他们的微信号主动联系</view>
       <view class="text">报满5人将不再展示，如果你的小组已报满但成员长时间未添加你，请在小组长群联系我修改</view>
       <view class="text">你的小组群由你自行创建，自己拉组员进群。</view>
       <view class="text">！！！看这里，以下是元岛小组长群的二维码，请长按识别加入，进群后更改备注为：你的小组ID-昵称（如：16-小张）</view>
-      <image show-menu-by-longpress class="img" mode="widthFix" src="cloud://mid-2gnw71li1e1341f3.6d69-mid-2gnw71li1e1341f3-1308839362/g{{g}}.png"></image>
+      <image show-menu-by-longpress class="img" mode="widthFix" src="cloud://mid-2gnw71li1e1341f3.6d69-mid-2gnw71li1e1341f3-1308839362/g{{g}}.jpg"></image>
       <view class="text">每30个小组一个班级，请长按识别下方班级二维码进入，进群后更改备注为：你的小组ID-昵称（如：16-小张）</view>
-      <image show-menu-by-longpress class="img" mode="widthFix" src="cloud://mid-2gnw71li1e1341f3.6d69-mid-2gnw71li1e1341f3-1308839362/c{{img}}.png"></image>
+      <image show-menu-by-longpress class="img" mode="widthFix" src="cloud://mid-2gnw71li1e1341f3.6d69-mid-2gnw71li1e1341f3-1308839362/c{{img}}.jpg"></image>
     </view>
     <view wx:if="{{code}}" class="flex column aic jcc">
       <view class="tip">提交成功！你的小组ID是：</view>
@@ -40,7 +38,7 @@
       <view class="text">如果你的小组长长时间未通过，请在班群联系我修改</view>
       <view class="text">每30个小组一个班级，请长按识别下方 班级二维码 进入，进群后更改备注为：你的小组ID-昵称（如：16-小张）</view>
       <view class="text red">注意：元岛没有任何私下收费项目或环节，如有人私聊涉及金钱的一律视为诈骗，如有遇到请立即联系管理员。</view>
-      <image show-menu-by-longpress class="img" mode="widthFix" src="cloud://mid-2gnw71li1e1341f3.6d69-mid-2gnw71li1e1341f3-1308839362/c{{img}}.png"></image>
+      <image show-menu-by-longpress class="img" mode="widthFix" src="cloud://mid-2gnw71li1e1341f3.6d69-mid-2gnw71li1e1341f3-1308839362/c{{img}}.jpg"></image>
     </view>
   </view>
 </view>

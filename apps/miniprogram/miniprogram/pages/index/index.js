@@ -11,9 +11,9 @@ Page({
     } else {
       wx.cloud
         .callFunction({
-          name: "quickstartFunctions",
+          name: "fun",
           data: {
-            type: "getMyGroup",
+            api: "getMyGroup",
           },
         })
         .then((res) => {

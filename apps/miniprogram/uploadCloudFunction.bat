@@ -1,1 +1,2 @@
-"D:\Program Files (x86)\Tencent\微信web开发者工具\cli.bat" cloud functions deploy --e mid-2gnw71li1e1341f3 --n quickstartFunctions --r --project "D:\app\apps\miniprogram" --report_first --report
+"D:\nodejs\node.exe" "D:\app\apps\miniprogram\genApi.js"
+"D:\Program Files (x86)\Tencent\微信web开发者工具\cli.bat" cloud functions deploy --e mid-2gnw71li1e1341f3 --n fun --r --project "D:\app\apps\miniprogram" --report_first --report

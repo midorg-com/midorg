@@ -14,10 +14,10 @@ Page({
     });
     wx.cloud
       .callFunction({
-        name: "quickstartFunctions",
+        name: "fun",
         data: {
-          type: "getManyForm",
-          data: {
+          api: "getManyForm",
+          args: {
             groupId: Number(e.groupId) || 1,
           },
         },

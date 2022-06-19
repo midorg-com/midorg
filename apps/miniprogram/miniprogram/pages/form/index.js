@@ -64,10 +64,10 @@ Page({
     if (this.data.groupId) {
       wx.cloud
         .callFunction({
-          name: "quickstartFunctions",
+          name: "fun",
           data: {
-            type: "joinGroup",
-            data: {
+            api: "joinGroup",
+            args: {
               ...u,
               age: new Date().getFullYear() - this.data.date,
               region: this.data.region,
@@ -105,10 +105,10 @@ Page({
     } else {
       wx.cloud
         .callFunction({
-          name: "quickstartFunctions",
+          name: "fun",
           data: {
-            type: "createGroup",
-            data: {
+            api: "createGroup",
+            args: {
               ...u,
               age: new Date().getFullYear() - this.data.date,
               region: this.data.region,

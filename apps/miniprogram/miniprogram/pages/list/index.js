@@ -5,9 +5,9 @@ Page({
   onLoad: function (e) {
     wx.cloud
       .callFunction({
-        name: "quickstartFunctions",
+        name: "fun",
         data: {
-          type: "getManyGroup",
+          api: "getManyGroup",
         },
       })
       .then((res) => {
