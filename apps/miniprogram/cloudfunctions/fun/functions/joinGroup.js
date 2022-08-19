@@ -46,7 +46,6 @@ module.exports = async (args, db, openId, ctx) => {
     },
   });
   return {
-    success: true,
     code: res.data[0].code,
     groupId: args.groupId,
   };

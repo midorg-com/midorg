@@ -8,4 +8,6 @@
 
 新来的同学请注意，如果你是看了一期学会写小程序那节来的，那么此处的 main 分支代码和视频不一致，因为它是最新的，你需要再看后面两期 git 和 github 的视频学习，然后[切换分支到 0.2.0 才能看到旧代码](https://github.com/midorg-com/midorg/tree/0.2.0)。0.1.0 就只有个网页，无标签，查看 web 目录即可。
 
+day2 和 day3 的视频合并在 [0.3.0 tag](<(https://github.com/midorg-com/midorg/tree/0.3.0)>) 版本中。
+
 本仓库后续将持续补充《Re01》的教学代码和元岛的项目代码。

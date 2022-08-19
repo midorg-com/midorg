@@ -1,3 +1,5 @@
+import cf from "../../utils/cf";
+
 Page({
   data: {
     date: "",
@@ -61,71 +63,33 @@ Page({
     });
     wx.showLoading({});
 
-    if (this.data.groupId) {
-      wx.cloud
-        .callFunction({
-          name: "fun",
-          data: {
-            api: "joinGroup",
-            args: {
-              ...u,
-              age: new Date().getFullYear() - this.data.date,
-              region: this.data.region,
-              groupId: Number(this.data.groupId),
-            },
-          },
-        })
-        .then((res) => {
-          this.setData({
-            loading: false,
-          });
-          wx.hideLoading();
-
-          if (res.result.success) {
-            wx.setStorageSync("groupId", this.data.groupId);
-            wx.redirectTo({
-              url:
-                "/pages/tip/index?groupId=" +
-                this.data.groupId +
-                "&code=" +
-                res.result.code,
-            });
-          } else {
-            wx.showModal({
-              title: "提示",
-              content: res.result.errorMessage,
-              success: function () {
-                wx.navigateBack({
-                  delta: 1,
-                });
-              },
-            });
-          }
+    // 传入第三个参数为true开启loading提示
+    cf(
+      this.data.groupId ? "joinGroup" : "createGroup",
+      {
+        ...u,
+        age: new Date().getFullYear() - this.data.date,
+        region: this.data.region,
+        groupId: Number(this.data.groupId) || "",
+      },
+      true
+    )
+      .then((res) => {
+        wx.setStorageSync("groupId", res.groupId);
+        wx.redirectTo({
+          url:
+            "/pages/tip/index?groupId=" +
+            String(res.groupId) +
+            "&code=" +
+            (res.code || ""),
         });
-    } else {
-      wx.cloud
-        .callFunction({
-          name: "fun",
-          data: {
-            api: "createGroup",
-            args: {
-              ...u,
-              age: new Date().getFullYear() - this.data.date,
-              region: this.data.region,
-            },
-          },
-        })
-        .then((res) => {
-          wx.setStorageSync("groupId", res.result.groupId);
-          this.setData({
-            loading: false,
-          });
-          wx.hideLoading();
-          wx.redirectTo({
-            url: "/pages/tip/index?groupId=" + String(res.result.groupId),
-          });
+      })
+      .finally(() => {
+        // finally就是不管成功或失败都会执行，设置loading等待状态为false
+        this.setData({
+          loading: false,
         });
-    }
+      });
   },
   dateChange: function (e) {
     this.setData({

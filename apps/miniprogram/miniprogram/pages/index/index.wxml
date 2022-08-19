@@ -1,33 +1,18 @@
 <view>
-    <view class="cover">
-        <image src="/images/logo.png" class="logo" />
-    </view>
-    <view class="title">嗨~欢迎来到元岛!</view>
-    <view class="desc">这里是元岛的分组小程序V1 版本</view>
-    <view class="desc red">如未了解元岛和Re01 请勿使用</view>
-    <view class="text b">组织结构：</view>
-    <view class="text">加入社区有两种形式，一是小组学习，二是大群学习。</view>
-    <view class="text">小组形式适合需要活跃的学习氛围的同学，每小组6人，每30小组一个班，要求你积极活跃不潜水。</view>
-    <view class="text">如果你没有时间交流参与，那么可以加入大群学习，偶尔冒泡，围观即可。</view>
-    <view class="text b">小组作用：</view>
-    <view class="text">供元岛成员在小组内互帮互助共同成长，类似于大学宿舍的概念。</view>
-    <view class="text">小组长负责督促和协调大家，大家在内部群里沟通交流，分小组互帮互助，获得作业反馈、疑难问答等。</view>
-    <view class="text b">如何分组：</view>
-    <view class="text">元岛小组由一个小组长和五名成员组成。</view>
-    <view class="text">
-        想当小组长的点击下方 创建小组，填写你的基本信息后就会创建一个小组，小组长负责建立小组微信群并添加报名你小组的成员。同时提交后会出现小组长群，记得加入（小组长在以后有额外奖励）。
-    </view>
-    <view class="text">
-        想当小组员的点击下方 加入小组，选择一个符合你的年龄等信息的小组（如没有符合的，可以暂且等待或自行创建小组），填写基本信息提交后会出现小组长微信，添加小组长微信进入小组，同时会出现你所在班级的群，记得加入。
-    </view>
-    <view class="text">分组规则：主要是同年龄段，不超过3年以免代沟。其它的地区和简介都看个人，不做要求。</view>
-    <view class="text">小组长创建小组后耐心等待别人报名即可，下方按钮会变成 我的小组，可以看到报名者信息，你也可以邀请自己的朋友加入。</view>
-    <view wx:if="{{!groupId}}" class="desc">请在下方选择你的分组倾向</view>
-    <view wx:if="{{!groupId}}" class="desc red">
-        注意：元岛没有任何私下收费项目或环节，如有人私聊涉及金钱的一律视为诈骗，如有遇到请立即联系管理员。
-    </view>
-    <view wx:if="{{groupId}}" class="desc">你已加入{{groupId}}小组，点击下方按钮查看小组信息</view>
-    <view class="choose">
+    <navigator url="/pages/index/webview" class="card mg40 colorCard">
+      <view class="fs36 mgb20">元岛社区介绍：</view>
+      <view class="fs28 mgb10"
+        >元岛是一个学习型 DAO
+        (分布式自治组织)，有永久免费的新时代课程和丰富多彩的兴趣小组。你可以视元岛为在线大学、兴趣社区、无边界公司等。</view
+      >
+      <view class="fs28 mgb10"
+        >元岛的所有权通过代码和数据归属于所有成员，社区决策将由所有社员加权投票驱动。</view
+      >
+      <view class="fs28 mgb10">欢迎来到 Web3.0 时代！</view>
+      <view class="fs28 tar">点此查看详情 →</view>
+    </navigator>
+
+    <view class="card mg40">
         <navigator wx:if="{{!groupId}}" class="join" url="/pages/form/index">创建小组</navigator>
         <navigator wx:if="{{!groupId}}" class="join" url="/pages/list/index">加入小组</navigator>
         <navigator wx:if="{{!groupId}}" class="join" url="/pages/tip/index?type=big">
@@ -37,21 +22,4 @@
             我的小组
         </navigator>
     </view>
-    <view class="hr"></view>
-    <view class=" text">元岛是一个学习型DAO (分布式自治组织) 社区。</view>
-    <view class="text">元岛有永久免费的新时代课程和团结互助的社群。</view>
-    <view class="text">你可以将元岛视为在线大学，有课程，有小组，有班级，有社团，等等。</view>
-    <view class="text">你可以将元岛视为游戏，写作业和参与活动都能获得经验值或积分，等级高的同学不仅能登上榜单，更能获得实际奖励。</view>
-    <view class="text">你可以将元岛视为无边界公司，可以自行或和他人合作进行商业项目。</view>
-    <view class="text">你也可以将元岛视为社区，这里都是一些团结友爱、热爱学习和积极向上的小伙伴，认识大家扩展你的生活边界。</view>
-    <view class="hr"></view>
-    <view class="text">现阶段元岛的同学们主要学习康文昌的《从零开始的编程课（Re01）》，以后也会有更多免费且优秀的课程加入进来。</view>
-    <view class="text">社群目前的主要功能是：在内部群里沟通交流，分小组互帮互助，获得作业反馈、疑难问答等。</view>
-    <view class="text">而且，当元岛未来成员变多以后，我们也会尝试多个方向，比如共创产品、对接优质企业内推组织成员、分小组承接商业项目、线下聚会等等。</view>
-    <view class="text">快来加入我们吧！</view>
-    <navigator url="/pages/webview/index">
-        <view class="text">更多介绍可以点击这里前往元岛官网查看：</view>
-        <view class="text link">https://www.midorg.com</view>
-    </navigator>
-    <view class="cover"></view>
 </view>

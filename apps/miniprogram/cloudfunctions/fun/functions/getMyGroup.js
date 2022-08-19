@@ -7,7 +7,6 @@ module.exports = async (args, db, openId, ctx) => {
     .get();
 
   return {
-    success: true,
     groupId: res.data[0] ? res.data[0].groupId : "",
   };
 };

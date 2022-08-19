@@ -1,19 +1,25 @@
-// app.js
 App({
   onLaunch: function () {
+    // 只有很老的微信版本没有wx.cloud环境，因为我们的功能依赖这个，所以对没有的老版本跳转至更新页面
     if (!wx.cloud) {
-      console.error('请使用 2.2.3 或以上的基础库以使用云能力');
+      wx.updateWeChatApp({});
     } else {
+      // 在开发和体验环境使用测试云环境
+      let info = wx.getAccountInfoSync();
       wx.cloud.init({
-        // env 参数说明：
-        //   env 参数决定接下来小程序发起的云开发调用（wx.cloud.xxx）会默认请求到哪个云环境的资源
-        //   此处请填入环境 ID, 环境 ID 可打开云控制台查看
-        //   如不填则使用默认环境（第一个创建的环境）
-        // env: 'my-env-id',
+        env:
+          info.miniProgram.envVersion === "release"
+            ? "mid-2gnw71li1e1341f3"
+            : "test-1gx755x1a044799e",
         traceUser: true,
       });
     }
-
-    this.globalData = {};
-  }
+    // 立即更新版本，详见文档：https://developers.weixin.qq.com/miniprogram/dev/framework/runtime/update-mechanism.html
+    let updateManager = wx.getUpdateManager();
+    updateManager.onCheckForUpdate(function (res) {});
+    updateManager.onUpdateReady(function () {
+      updateManager.applyUpdate();
+    });
+  },
+  globalData: {}, // 全局数据，可在所有页面用getApp()访问到这个对象
 });

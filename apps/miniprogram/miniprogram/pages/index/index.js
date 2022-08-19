@@ -1,3 +1,5 @@
+import cf from "../../utils/cf";
+
 Page({
   data: {
     groupId: "",
@@ -9,24 +11,17 @@ Page({
         groupId: groupId,
       });
     } else {
-      wx.cloud
-        .callFunction({
-          name: "fun",
-          data: {
-            api: "getMyGroup",
-          },
-        })
-        .then((res) => {
-          if (res.result?.groupId) {
-            wx.setStorageSync("groupId", res.result.groupId);
-            this.setData({
-              groupId: res.result.groupId,
-            });
-          }
-        });
+      cf("getMyGroup").then((res) => {
+        if (res) {
+          wx.setStorageSync("groupId", res.groupId);
+          this.setData({
+            groupId: res.groupId,
+          });
+        }
+      });
     }
   },
-  onShow: function (params) {
+  onShow: function () {
     let groupId = wx.getStorageSync("groupId");
     if (groupId) {
       this.setData({

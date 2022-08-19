@@ -1,2 +1,1 @@
-<!--index.wxml-->
-<web-view src="https://www.midorg.com/"></web-view>
+<web-view src="https://www.midorg.com/{{path}}"></web-view>

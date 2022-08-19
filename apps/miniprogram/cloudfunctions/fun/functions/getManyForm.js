@@ -10,7 +10,6 @@ module.exports = async (args, db, openId, ctx) => {
     throw Error("Not your group");
   }
   return {
-    success: true,
     userList: res.data,
     isLeader: form.isLeader,
   };

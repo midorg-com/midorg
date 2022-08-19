@@ -8,7 +8,6 @@ module.exports = async (args, db, openId, ctx) => {
     .orderBy("groupId", "asc")
     .get();
   return {
-    success: true,
     groupList: res.data,
   };
 };

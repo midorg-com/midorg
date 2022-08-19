@@ -73,6 +73,9 @@
       hr {
         margin: 30px auto;
       }
+      code {
+        background-color: #ccc;
+      }
     </style>
   </head>
 
@@ -88,7 +91,7 @@
           href="https://space.bilibili.com/34786453"
         >
           《Re01：从零开始的编程之路》</a
-        >必修部分的开发环境配置：
+        >必修部分的开发环境配置(尽量不要用win7，很多编程软件已经不支持win7了)：
       </p>
       <h3>
         <a
@@ -141,6 +144,14 @@
           href="https://ide.aliyun.com/"
           >Cloud Ide (阿里云)</a
         >
+      </p>
+      <p>
+        注：进去选通用git, 然后源代码库地址填写:
+        https://github.com/lovekwc/re01-one.git 技术栈：通用。点进入空间即可。
+      </p>
+      <p>
+        注：亦或者是选node.js
+        相册模板，进去后删掉所有文件就行，当然你可以留着看。
       </p>
       <p>
         <a
@@ -237,34 +248,70 @@
         <li>Chinese ：中文界面</li>
         <li>Prettier ：代码美化</li>
         <li>Wisen-Translate ：翻译插件(云环境下没有)</li>
-        <li>Live preview ：实时预览html(在云环境下改用Live Server)</li>
+        <li>Live server ：实时预览html(视频中的Live Preview有很多bug，弃用)</li>
         <li>Search/Translate Hero ：搜索跳转和翻译(云环境下没有)</li>
         <li>vscode-icons ：美化图标</li>
+        <li>Git History Diff ：后面git教程中出现的插件</li>
+        <li>HTMLHint ：检查html文件出错的地方</li>
       </ul>
       <h3>VS Code 配置</h3>
+      <p>Auto Save :自动保存，选择afterDelay</p>
       <p>Format On Save :勾选，保存后自动格式化</p>
       <p>Format On Paste :勾选，粘贴时自动格式化</p>
       <p>Default Formatter :选择prettier，默认格式化插件</p>
       <p>Linked Editing :勾选，同时重命名html标签名</p>
+      <p>
+        Accept Suggestion On Commit Character
+        :取消勾选，不再自动补全一些乱七八糟的东西
+      </p>
+      <p>
+        Accept Suggestion On Enter
+        :选择off关闭，回车就是应该换行而不是自动补全乱七八糟的代码
+      </p>
+      <p>Tab Completion :选择on开启，如需自动补全，使用tab键</p>
       <h3>在电脑上运行JavaScript 语言的后端框架：Node.js</h3>
+      <p>不要改安装目录，就C盘，不然容易出问题。</p>
       <p>
         <a
           target="_blank"
           rel="noopener noreferrer"
-          href="http://nodejs.cn/download/"
+          href="https://npmmirror.com/mirrors/node/v18.7.0/node-v18.7.0-x64.msi"
         >
-          请根据自己的电脑系统选择不同的版本下载。下载后一定要重启！在终端验证是node
-          -v ，中间有空格的！</a
+          windows系统版。下载后一定要重启！在终端验证是node -v
+          ，中间有空格的!!!!!!!!!!!!!!!!!!!!!!!</a
         >
       </p>
       <p>
         <a
           target="_blank"
           rel="noopener noreferrer"
-          href="https://registry.npmmirror.com/-/binary/node/v12.9.1/node-v12.9.1-x64.msi"
+          href="https://registry.npmmirror.com/-/binary/node/v12.9.1/node-v12.9.1-x86.msi"
         >
-          win7用户点这里下载v12版本。</a
+          win7或32位用户点这里下载v12版本（尽量升级win11
+          或用云环境，旧系统有一大堆问题）。</a
         >
+      </p>
+      <p>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://npmmirror.com/mirrors/node/v18.7.0/node-v18.7.0.pkg"
+        >
+          Mac系统版</a
+        >
+      </p>
+      <p>
+        在使用node 或npm 的时候，可能会出现提示：<code
+          >npm WARN config global `--global`, `--local` are deprecated. Use
+          `--location=global` instead.</code
+        >
+      </p>
+      <p>
+        在终端执行：<code
+          >npx --location=global npm-windows-upgrade --npm-version latest</code
+        >
+        如有提示process等字样，按y 再回车确认继续执行，就会解决上面这个warn
+        警告。
       </p>
       <h3>代码版本管理：Git</h3>
       <p>
@@ -305,7 +352,23 @@
       </p>
       <p>访问Github慢的话请尝试如下几种方法：</p>
       <ul>
-        <li>某些我不能说的方法，你懂的</li>
+        <li>科学上网，你懂的</li>
+        <li>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.cnblogs.com/kewei/archive/2021/06/21/14913063.html"
+          >
+            FastGithub (推荐) </a
+          >：
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://cowtransfer.com/s/8857512666204f"
+          >
+            win10及以上版本，解压后打开FastGithub.UI.exe
+          </a>
+        </li>
         <li>
           <a
             target="_blank"
@@ -319,7 +382,7 @@
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="https://doc.fastgit.org/zh-cn/guide.html#web-%E7%9A%84%E4%BD%BF%E7%94%A8"
+            href="https://doc.fastgit.org/zh-cn/guide.html"
           >
             FastGit 镜像
           </a>
@@ -337,15 +400,6 @@
             href="https://gitee.com/monkeycc/GitHub520?_from=gitee_search#22-%E8%87%AA%E5%8A%A8%E6%96%B9%E5%BC%8F"
           >
             配置教程
-          </a>
-        </li>
-        <li>
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://zhuanlan.zhihu.com/p/432414619"
-          >
-            FastGithub 缓解
           </a>
         </li>
         <li>
@@ -382,6 +436,18 @@
         target="_blank"
         rel="noopener noreferrer"
         >沪ICP备19037513号-3</a
+      >
+      <p></p>
+      <a
+        style="color: #666"
+        href="http://beian.miit.gov.cn/"
+        target="_blank"
+        rel="noopener noreferrer"
+        ><img
+          src="https://img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png"
+          alt="anbei"
+          style="width: 15px; height: 15px"
+        />沪公网安备31011502018962号</a
       >
     </footer>
     <script>

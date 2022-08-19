@@ -33,6 +33,11 @@
         margin: 30px auto;
       }
     </style>
+    <style id="mp">
+      .mp {
+        display: none;
+      }
+    </style>
   </head>
 
   <body style="margin: 0">
@@ -68,17 +73,20 @@
           target="_blank"
           rel="noopener noreferrer"
         >
-          《从零开始的编程课（Re01）》 </a
+          《从零开始的编程课（Re01）》
+          <span class="mp">(小程序内无法打开，请用浏览器打开官网)</span></a
         >，以后也会有更多免费且优秀的课程加入进来。
       </p>
-      <a
-        href="https://www.midorg.com/map.html"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        《课程知识图谱》
-      </a>
-      <p>社群目前的主要功能是：在内部群里沟通交流，分小组互帮互助。</p>
+      <p>
+        <a
+          href="https://www.midorg.com/map.html"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          《课程知识图谱》 </a
+        ><span class="mp">(小程序内无法打开，请用浏览器打开官网)</span>
+      </p>
+      <p>社群目前的主要功能是：在内部群里沟通交流，增加学习氛围和持续提醒。</p>
       <p>
         元岛是一个元宇宙组织，没有实体位置，不管你是从哪里看到我们，只要你能自觉遵守组织公约，就可以随时加入我们，获得作业反馈、疑难问答、小组互助等多个组织权益哦。
       </p>
@@ -91,8 +99,7 @@
         href="https://metaisland.feishu.cn/invite/member/A0M97SdtWSyr_RsM">点击这里跳转到“飞书”网站。</a>
     </p> -->
       <p>
-        在微信搜索小程序：“元岛”或扫描下方二维码，进入后查看分组介绍选择
-        创建小组 或 加入小组，随后根据提示进群即可。
+        在微信搜索小程序：“元岛”或扫描下方二维码，进入后查看学习大群加入方式。
       </p>
       <img
         style="width: 172px; height: 196px; margin: 20px 0"
@@ -114,7 +121,9 @@
           rel="noopener noreferrer"
           href="https://qun.qq.com/qqweb/qunpro/share?_wv=3&_wwv=128&appChannel=share&inviteCode=1W4JZyk&appChannel=share&businessType=9&from=246610&biz=ka#/pc"
         >
-          点击此处加入
+          点击此处加入<span class="mp"
+            >(小程序内无法打开，请用浏览器打开官网)</span
+          >
         </a>
       </p>
 
@@ -124,7 +133,9 @@
           rel="noopener noreferrer"
           href="https://metaisland.feishu.cn/docs/doccn1QH9qC5URIli9m2gHSIkme?from=from_copylink"
           >点击这里认真阅读《元岛公约》</a
-        >，自觉维护大家的学习和交友环境。
+        >，自觉维护大家的学习和交友环境。<span class="mp"
+          >(小程序内无法打开，请用浏览器打开官网)</span
+        >
       </p>
       <hr />
       <p>下面是关于元岛的进一步介绍：</p>
@@ -200,8 +211,10 @@
           >编程软件加速下载</a
         >
         <a href="/map.html" target="_blank" rel="noopener noreferrer">
-          &nbsp; Re01知识图谱
-        </a>
+          &nbsp; Re01知识图谱 </a
+        ><span class="mp" style="color: #666">
+          (小程序内无法打开，请用浏览器打开官网)
+        </span>
       </div>
       <p style="color: #666">Copyright © midorg.com</p>
       <a
@@ -230,6 +243,15 @@
         window.addEventListener("load", function () {
           navigator.serviceWorker.register("sw.js");
         });
+      }
+      let inWechatMP =
+        navigator.userAgent.match(/micromessenger/i) ||
+        navigator.userAgent.match(/miniprogram/i) ||
+        window.__wxjs_environment === "miniprogram";
+
+      if (inWechatMP) {
+        let w = document.getElementById("mp");
+        w.sheet.rules[0].style.display = "inline";
       }
     </script>
   </body>
