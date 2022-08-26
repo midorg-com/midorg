@@ -1,4 +1,6 @@
 /.osstuil_checkpoint
 /.vscode
 /apps/web/images/
-/apps/messageBoard/unpackage/
+unpackage/
+/apps/mp/uniCloud-aliyun/cloudfunctions/fun/env.js
+node_modules/

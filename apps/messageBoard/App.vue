@@ -1,17 +1,16 @@
 <script>
-	export default {
-		onLaunch: function() {
-			console.log('App Launch')
-		},
-		onShow: function() {
-			console.log('App Show')
-		},
-		onHide: function() {
-			console.log('App Hide')
-		}
-	}
+export default {
+  onLaunch: function () {
+    let updateManager = uni.getUpdateManager();
+    updateManager.onCheckForUpdate(function (res) {});
+    updateManager.onUpdateReady(function () {
+      updateManager.applyUpdate();
+    });
+  },
+  globalData: {},
+};
 </script>
 
 <style>
-	/*每个页面公共css */
+/*每个页面公共css */
 </style>

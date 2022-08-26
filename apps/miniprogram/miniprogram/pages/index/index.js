@@ -12,7 +12,7 @@ Page({
       });
     } else {
       cf("getMyGroup").then((res) => {
-        if (res) {
+        if (res.groupId) {
           wx.setStorageSync("groupId", res.groupId);
           this.setData({
             groupId: res.groupId,
