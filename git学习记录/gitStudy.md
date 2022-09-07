@@ -8,7 +8,7 @@
 
 
 
-1. 查看git 版本号
+1. 查看git 版本号 version
 
 > 操作：
 >
@@ -38,7 +38,7 @@
 
 
 
-3. 创建邮箱
+3. 创建邮箱 
 
    > 操作：
    >
@@ -50,7 +50,7 @@
 
 
 
-4. 初始化git
+4. 初始化仓库 init
 
    > 操作:
    >
@@ -66,7 +66,7 @@
 
 
 
-5. 将文件添加至版本控制系统
+5. 将文件添加至版本控制系统 add
 
    > 操作:
    >
@@ -80,7 +80,7 @@
 
 
 
-6. 提交变更记录
+6. 提交变更记录 commit
 
 > 操作：
 >
@@ -103,7 +103,7 @@
 >      1 file changed, 1 insertion(+), 1 deletion(-)
 >     ```
 
-7. 查看已提交的变更记录
+7. 查看已提交的变更记录 log
 
    > 操作：
    >
@@ -126,7 +126,7 @@
    > - Date： 提交变更时间
    > - 最下面的是提交变更时写的内容
 
-8. 回退某个版本
+8. 回退某个版本 reset
 
    > 操作：
    >
@@ -149,7 +149,7 @@
 
 9. 分支
 
-   1. 创建分支
+   1. 创建分支 branch
 
       > 操作：
       >
@@ -159,7 +159,7 @@
       >
       > - 这个操作是在把某个版本已经提交变更以后才能去创建breach
 
-   2. 切换分支
+   2. 切换分支 checkout
 
       > 操作：
       >
@@ -176,7 +176,7 @@
       > - 可以在创建的不同分支上切换
       > - 可以在主流写代码，也可以在支流写代码
 
-   3. 合并分支
+   3. 合并分支 merge
 
       > 操作：
       >
@@ -193,3 +193,70 @@
       > ```
       >
       > 
+
+10. 克隆仓库 (也就是拷贝一份远程仓库，或者下载一个项目。) clone
+
+    > 操作：
+    >
+    > ```sh
+    > git clone url地址
+    > ```
+    >
+    > 显示：
+    >
+    > 会在当前文件创建一份你克隆过来的项目
+
+11. 远程仓库操作 remote
+
+    1. 查看版本信息
+
+       > 操作：
+       >
+       > ```sh
+       > git remote -v
+       > ```
+       >
+       > 显示：
+       >
+       > ```sh
+       > origin  https://github.com/tianqixin/runoob-git-test (fetch)
+       > origin  https://github.com/tianqixin/runoob-git-test (push)
+       > ```
+       >
+       > - **origin** 为远程地址的别名
+
+    2. 显示某个远程仓库的信息
+
+       > 操作：
+       >
+       > ```sh
+       > git remote show  https://github.com/tianqixin/runoob-git-test
+       > ```
+
+    3. 添加远程版本库
+
+       > 操作：
+       >
+       > ```sh
+       > git remote add shortname url
+       > 例如
+       > git add origin git@github.com:tianqixin/runoob-git-test.git
+       > ```
+
+    4. 删除远程仓库
+
+       > 操作：
+       >
+       > ```sh
+       > git remote rm name
+       > ```
+
+    5. 移动远程仓库
+
+       > 操作：
+       >
+       > ```sh
+       > git remote rename 旧仓库 新仓库
+       > ```
+       >
+       > 
