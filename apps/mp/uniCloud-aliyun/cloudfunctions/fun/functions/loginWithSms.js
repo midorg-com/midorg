@@ -80,7 +80,7 @@ module.exports = async (args, db, openId, ctx) => {
     if (sms.code !== code) {
       throw Error("验证码错误");
     }
-    if (Date.now() - sms.createdAt < 600000) {
+    if (Date.now() - sms.createdAt > 600000) {
       throw Error("验证码已失效");
     }
     // 查询一下用户，有就返回
