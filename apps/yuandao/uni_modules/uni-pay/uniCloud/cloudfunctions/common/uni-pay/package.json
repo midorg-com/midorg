@@ -1,0 +1,16 @@
+{
+  "name": "uni-pay",
+  "version": "1.0.29",
+  "description": "unipay for uniCloud",
+  "main": "index.js",
+  "homepage": "https://uniapp.dcloud.io/uniCloud/unipay",
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitee.com/dcloud/uniPay.git"
+  },
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "Apache-2.0",
+  "devDependencies": {}
+}

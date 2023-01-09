@@ -1,0 +1,25 @@
+	"tabBar": {
+		"color": "#888888",
+		"selectedColor": "#8BA3C7",
+		"backgroundColor": "#ffffff",
+		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"text": "课程",
+				"iconPath": "static/images/icon/index.png",
+				"selectedIconPath": "static/images/icon/index-c.png"
+			},
+			{
+				"pagePath": "pages/community/community",
+				"text": "社区",
+				"iconPath": "static/images/icon/community.png",
+				"selectedIconPath": "static/images/icon/community-c.png"
+			},
+			{
+				"pagePath": "pages/user/user",
+				"text": "我的",
+				"iconPath": "static/images/icon/user.png",
+				"selectedIconPath": "static/images/icon/user-c.png"
+			}
+		]
+	},

@@ -1,0 +1,12 @@
+{
+  "name": "yuandao",
+  "version": "1.0.0",
+  "description": "元岛小程序项目",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

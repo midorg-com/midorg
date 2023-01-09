@@ -1,0 +1,22 @@
+{
+  "name": "fun",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "cloudfunction-config": {
+    "memorySize": 1024,
+    "timeout": 5,
+    "runtime": "Nodejs12"
+  },
+  "dependencies": {
+    "jsonwebtoken": "latest",
+    "uni-pay": "file:../../../uni_modules/uni-pay/uniCloud/cloudfunctions/common/uni-pay",
+    "env": "file:../common/env"
+  },
+  "extensions": {}
+}

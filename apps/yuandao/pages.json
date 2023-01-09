@@ -1,0 +1,266 @@
+{
+  "pages": [
+    {
+      "path": "pages/index/index",
+      "style": {}
+    },
+    {
+      "path": "pages/index/group",
+      "style": {}
+    },
+    {
+      "path": "pages/index/qrcode",
+      "style": {}
+    },
+    {
+      "path": "pages/index/clockin",
+      "style": {
+        "navigationBarTitleText": "打卡"
+      }
+    },
+    {
+      "path": "pages/index/job",
+      "style": {
+        "navigationBarTitleText": "招聘就业"
+      }
+    },
+    {
+      "path": "pages/index/task",
+      "style": {
+        "navigationBarTitleText": "任务"
+      }
+    },
+    {
+      "path": "pages/index/trainer",
+      "style": {
+        "navigationBarTitleText": "私教"
+      }
+    },
+    {
+      "path": "pages/index/webview",
+      "style": {}
+    },
+    {
+      "path": "pages/user/notification",
+      "style": {
+        "navigationBarTitleText": "我的消息"
+      }
+    },
+    {
+      "path": "pages/user/profile",
+      "style": {
+        "navigationBarTitleText": "资料"
+      }
+    },
+    {
+      "path": "pages/user/userHomework",
+      "style": {
+        "navigationBarTitleText": "我的作业"
+      }
+    },
+    {
+      "path": "pages/user/userQuestion",
+      "style": {
+        "navigationBarTitleText": "我的提问"
+      }
+    },
+    {
+      "path": "pages/user/user",
+      "style": {
+        "navigationBarTitleText": "我的"
+      }
+    },
+    {
+      "path": "pages/community/community",
+      "style": {
+        "navigationBarTitleText": "社区"
+      }
+    },
+    {
+      "path": "pages/course/homework",
+      "style": {
+        "navigationBarTitleText": "作业"
+      }
+    },
+    {
+      "path": "pages/course/faq",
+      "style": {
+        "navigationBarTitleText": "答疑"
+      }
+    },
+    {
+      "path": "pages/course/course",
+      "style": {
+        "navigationBarTitleText": "课程"
+      }
+    },
+    {
+      "path": "pages/course/article",
+      "style": {
+        "navigationBarTitleText": "学习笔记"
+      }
+    },
+    {
+      "path": "pages/course/question",
+      "style": {
+        "navigationBarTitleText": "提交问题"
+      }
+    },
+    {
+      "path": "pages/course/lesson",
+      "style": {
+        "navigationBarTitleText": "课程目录"
+      }
+    },
+    {
+      "path": "pages/team/form",
+      "style": {
+        "navigationBarTitleText": "创建小组"
+      }
+    },
+    {
+      "path": "pages/team/team",
+      "style": {
+        "navigationBarTitleText": "小组"
+      }
+    },
+    {
+      "path": "pages/team/teamApplication",
+      "style": {
+        "navigationBarTitleText": "申请"
+      }
+    },
+    {
+      "path": "pages/team/teamList",
+      "style": {
+        "navigationBarTitleText": "小组列表"
+      }
+    },
+    {
+      "path": "pages/team/tip",
+      "style": {}
+    },
+    {
+      "path": "pages/team/userTeams",
+      "style": {
+        "navigationBarTitleText": "我的小组"
+      }
+    },
+    {
+      "path": "pages/manage/teamManage",
+      "style": {
+        "navigationBarTitleText": "小组申请"
+      }
+    },
+    {
+      "path": "pages/manage/homeworkManage",
+      "style": {
+        "navigationBarTitleText": "作业批改"
+      }
+    },
+    {
+      "path": "pages/manage/communityManage",
+      "style": {
+        "navigationBarTitleText": "社区管理"
+      }
+    },
+    {
+      "path": "pages/manage/questionManage",
+      "style": {
+        "navigationBarTitleText": "问题管理"
+      }
+    },
+    {
+      "path": "pages/user/log",
+      "style": {
+        "navigationBarTitleText": "记录"
+      }
+    },
+    {
+      "path": "pages/manage/faqManage",
+      "style": {
+        "navigationBarTitleText": "问答管理"
+      }
+    },
+    {
+      "path": "pages/manage/articleManage",
+      "style": {
+        "navigationBarTitleText": "文章管理"
+      }
+    },
+    {
+      "path": "pages/community/rank",
+      "style": {
+        "navigationBarTitleText": "排行榜"
+      }
+    },
+    {
+      "path": "pages/user/invite",
+      "style": {
+        "navigationBarTitleText": "邀请"
+      }
+    },
+    {
+      "path": "pages/community/roadmap",
+      "style": {
+        "navigationBarTitleText": "路线图"
+      }
+    },
+    {
+      "path": "pages/community/topic",
+      "style": {
+        "navigationBarTitleText": "话题"
+      }
+    },
+    {
+      "path": "pages/community/contribution",
+      "style": {
+        "navigationBarTitleText": "社区支持"
+      }
+    },
+    {
+      "path": "pages/course/support",
+      "style": {
+        "navigationBarTitleText": "课程支持"
+      }
+    },
+    {
+      "path": "pages/community/discussion",
+      "style": {
+        "navigationBarTitleText": "讨论"
+      }
+    },
+    {
+      "path": "pages/user/order",
+      "style": {
+        "navigationBarTitleText": "订单"
+      }
+    },
+    {
+      "path": "pages/community/scholarship",
+      "style": {
+        "navigationBarTitleText": "奖学金申请"
+      }
+    },
+    {
+      "path": "pages/course/experience",
+      "style": {
+        "navigationBarTitleText": "学习笔记"
+      }
+    },
+    {
+      "path": "pages/index/consulting",
+      "style": {
+        "navigationBarTitleText": "企业服务"
+      }
+    }
+  ],
+  "globalStyle": {
+    "backgroundColor": "#eee",
+    "backgroundTextStyle": "light",
+    "backgroundColorTop": "#8BA3C7",
+    "navigationBarBackgroundColor": "#8BA3C7",
+    "navigationBarTitleText": "元岛",
+    "navigationBarTextStyle": "white"
+  }
+}

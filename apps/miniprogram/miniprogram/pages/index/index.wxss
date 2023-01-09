@@ -1,9 +1,0 @@
-.join {
-  width: 400rpx;
-  height: 100rpx;
-  margin: 50rpx auto;
-  text-align: center;
-  line-height: 100rpx;
-  color: #8ba3c7;
-  font-weight: bold;
-}
