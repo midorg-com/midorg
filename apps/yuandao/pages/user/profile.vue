@@ -49,8 +49,9 @@
         <view class="fs36">个性签名：</view>
         <textarea
           :maxlength="60"
+          auto-height="true"
           v-model="bio"
-          class="input h100"
+          class="input"
           name="bio"
           placeholder="60字内"
         ></textarea>
@@ -117,7 +118,6 @@ export default {
           this.loading = false;
         });
     },
-
     updateName: function (e) {
       let name = this.name;
 

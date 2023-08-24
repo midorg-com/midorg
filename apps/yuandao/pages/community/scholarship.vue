@@ -35,6 +35,7 @@ export default {
   data() {
     return {
       loading: false,
+      faq: false
     };
   },
   onLoad(e) {},

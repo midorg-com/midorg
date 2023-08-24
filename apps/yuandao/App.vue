@@ -18,9 +18,11 @@ page {
   letter-spacing: 1rpx;
   padding-bottom: 20rpx;
 }
+
 button {
   width: 360rpx;
 }
+
 /* flex常用css */
 .flex {
   display: flex;
@@ -53,9 +55,11 @@ button {
 .fww {
   flex-wrap: wrap;
 }
+
 .shrink0 {
   flex-shrink: 0;
 }
+
 /* 颜色常用css */
 .mc {
   color: #8ba3c7;
@@ -68,9 +72,11 @@ button {
 .gbc {
   background-color: #07c160;
 }
+
 .gc {
   color: #60cf95;
 }
+
 .cr {
   color: rgb(253, 91, 91);
 }
@@ -123,9 +129,11 @@ button {
 .pd0 {
   padding: 0px !important;
 }
+
 .pd8 {
   padding: 8px;
 }
+
 .pd20 {
   padding: 20rpx;
 }
@@ -202,24 +210,31 @@ button {
 .mgr20 {
   margin-right: 20rpx;
 }
+
 .mgr10 {
   margin-right: 10rpx;
 }
+
 .mgla {
   margin-left: auto;
 }
+
 .h100 {
   height: 100rpx;
 }
+
 .h400 {
   height: 400rpx;
 }
+
 .w100 {
   width: 100%;
 }
+
 .w150 {
   width: 150rpx;
 }
+
 /* 字体常用CSS */
 .fwb {
   font-weight: bold;
@@ -268,9 +283,11 @@ button {
 .lh17 {
   line-height: 1.7;
 }
+
 .text-justify-none {
   text-justify: none;
 }
+
 /* 组件常用css */
 .br {
   border-radius: 4rpx;
@@ -331,12 +348,14 @@ button {
   padding: 20rpx 0;
   width: 100%;
 }
+
 .smallInput {
   margin: 10rpx 0;
   border-bottom: 1px solid #666;
   padding: 10rpx 0;
   width: 100%;
 }
+
 .icon {
   width: 80rpx;
   height: 80rpx;
@@ -346,10 +365,12 @@ button {
   width: 32rpx;
   height: 32rpx;
 }
+
 .likeIcon {
   width: 50rpx;
   height: 50rpx;
 }
+
 .area {
   margin: 100rpx auto;
   display: flex;
@@ -367,13 +388,16 @@ button {
   margin-bottom: 12rpx;
   font-size: 24rpx;
 }
+
 .bordereee {
   border: 1px solid #eee;
 }
+
 .smallImg {
   width: 140rpx;
   height: 140rpx;
 }
+
 .upload {
   font-size: 100rpx;
   height: 100rpx;
@@ -382,21 +406,26 @@ button {
   padding: 20rpx;
   color: #999;
 }
+
 .addIcon {
   margin-top: -10rpx;
 }
+
 .tab {
   border-bottom: 2px solid #8ba3c7;
   padding: 20rpx 0 18rpx;
 }
+
 .tabbar {
   margin: -40rpx -40rpx 0;
   border-bottom: 1px solid #ccc;
 }
+
 .plainButton {
   background: none;
   font-size: 32rpx;
 }
+
 .plainButton::after {
   border: none;
 }

@@ -65,7 +65,7 @@ export default async function (api, args, withLoading) {
 
     uni.showModal({
       title: "网络错误",
-      content: e.message,
+      content: e.message || "",
     });
     return false;
   }

@@ -95,10 +95,10 @@
         <view class="shrink0">作业：</view>
         <view class="f1 c6">{{ lesson.homework || "请勿提交，等待更新" }}</view>
       </view>
-      <view class="fs28 mgb10 flex">
+      <view v-if="lesson.score" class="fs28 mgb10 flex">
         <view class="shrink0">奖励：</view>
         <view class="f1 fww">
-          <view v-if="lesson.score" class="flex jcsb">
+          <view  class="flex jcsb">
             <view class="flex aic mc">
               <view>等级+</view>
               <view> {{ lesson.level }}</view>
@@ -119,7 +119,7 @@
           <view class="c6" v-if="lesson.reward">{{ lesson.reward }}</view>
         </view>
       </view>
-      <view class="flex aic jcsa mgt40 mgb20">
+      <view class="flex aic jcsa mgt40 mgb10">
         <view
           @click="
             jump(

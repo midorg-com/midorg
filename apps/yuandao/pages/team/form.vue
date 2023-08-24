@@ -47,7 +47,8 @@
         <view class="fs36">小组介绍：</view>
         <textarea
           maxlength="300"
-          class="input h100"
+          auto-height="true"
+          class="input"
           v-model="intro"
           name="intro"
           placeholder="20-300字"
