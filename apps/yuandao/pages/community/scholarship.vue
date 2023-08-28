@@ -34,8 +34,7 @@ import cf from "../../utils/cf.js";
 export default {
   data() {
     return {
-      loading: false,
-      faq: false
+      loading: false
     };
   },
   onLoad(e) {},
