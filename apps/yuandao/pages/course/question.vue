@@ -78,7 +78,7 @@ export default {
   onLoad(e) {
     this.lessonId = e.id;
     this.title = e.title;
-    this.faq = Boolean(e.faq);
+    this.faq = e.hasOwnProperty("faq");
   },
   methods: {
     submit(e) {
