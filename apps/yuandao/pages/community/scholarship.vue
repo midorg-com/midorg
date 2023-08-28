@@ -2,13 +2,13 @@
   <view class="card mg40">
     <view class="fs36 mgb20">申请需知:</view>
     <view class="mgb20">1. 请描述你的真实信息；</view>
-    <view v-if="!faq" class="mgb20"
+    <view class="mgb20"
       >2. 现阶段奖学金不会以现金模式发放, 而是实物电脑；</view
     >
-    <view v-if="!faq" class="mgb20">
+    <view class="mgb20">
       3. 请描述你为什么需要和将用它达成什么效果；
     </view>
-    <view v-if="!faq" class="mgb20"> 4. 请描述你的学习历程； </view>
+    <view class="mgb20"> 4. 请描述你的学习历程； </view>
   </view>
   <view class="card mg40">
     <form @submit="submit">
@@ -34,8 +34,7 @@ import cf from "../../utils/cf.js";
 export default {
   data() {
     return {
-      loading: false,
-      faq: false
+      loading: false
     };
   },
   onLoad(e) {},
