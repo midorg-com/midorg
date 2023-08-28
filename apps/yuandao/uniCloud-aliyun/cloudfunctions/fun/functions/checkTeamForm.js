@@ -6,7 +6,7 @@ module.exports = async (args, db, userId, ctx) => {
       throw Error(form.data);
     }
     let res = await db.collection("team").orderBy("_id", "desc").limit(1).get();
-    let teamId = res.data[0]._id + 1;
+    let teamId = res.data.length ? res.data[0]._id + 1 : 1;
 
     let data = {
       ...team,

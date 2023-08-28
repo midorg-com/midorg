@@ -42,7 +42,7 @@
   </page-container>
   <view class="fs36 mg40">元岛的建设者们:</view>
   <view v-for="(item, index) in list" :key="index">
-    <view class="card mg40">
+    <view v-if="item.length" class="card mg40">
       <view class="fs36 mgb20">{{ item.user.name || "无昵称" }}</view>
       <view class="mgb20 flex aic fs28">
         <view>时间：</view>

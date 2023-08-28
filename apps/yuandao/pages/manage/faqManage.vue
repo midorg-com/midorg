@@ -5,7 +5,8 @@
         <view class="fs36">章节ID：</view>
         <textarea
           maxlength="200"
-          class="input h100"
+          auto-height="auto"
+          class="input"
           name="lessonId"
           placeholder="ID"
         ></textarea>
@@ -14,7 +15,8 @@
         <view class="fs36">问题：</view>
         <textarea
           maxlength="200"
-          class="input h100"
+          auto-height="true"
+          class="input"
           name="question"
           placeholder="你是如何遇到该问题的"
         ></textarea>
@@ -41,7 +43,8 @@
         <view class="fs36">回答：</view>
         <textarea
           maxlength="-1"
-          class="input h100"
+          auto-height="true"
+          class="input"
           name="answer"
           placeholder="回答"
         ></textarea>

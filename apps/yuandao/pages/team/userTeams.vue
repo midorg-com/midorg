@@ -28,7 +28,7 @@
         <view v-if="item.team.wxNumber" class="mgb10"
           >联系方式：{{ item.team.wxNumber }}</view
         >
-        <view class="mgb10"> 小组群： </view>
+        <view v-if="item.team.wx" class="mgb10"> 小组群： </view>
         <image
           v-if="item.team.wx"
           :src="item.team.wx"

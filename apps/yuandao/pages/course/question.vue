@@ -18,7 +18,9 @@
         <view class="fs36">问题：</view>
         <textarea
           maxlength="200"
-          class="input h100"
+          auto-height="true"
+          class="input"
+          style="min-height: 100rpx;"
           name="question"
           placeholder="请详细描述你的问题，越详细越清晰将更可能被回复和采纳，无意义没有信息的问题无法回答，不被采纳。"
         ></textarea>
@@ -27,7 +29,8 @@
         <view class="fs36">你的答案：</view>
         <textarea
           maxlength="3000"
-          class="input h100"
+          auto-height="true"
+          class="input"
           name="answer"
           placeholder="分享你解决问题的经验来帮助他人"
         ></textarea>

@@ -1,5 +1,5 @@
 <template>
-  <view class="card mg40">
+  <view v-if="notifications.length" class="card mg40">
     <view v-for="(item, index) in notifications" :key="item.createdAt">
       <view v-if="!item.url" class="fs28 mgb20 mgt20"
         ><uni-dateformat
